@@ -1,0 +1,17 @@
+{
+  "name": "mercurium",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "author": "Luís Medeiros",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}

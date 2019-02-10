@@ -1,0 +1,51 @@
+<!--
+  Generated template for the NewOrderPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>New Order</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+    <form (ngSubmit)="sendOrder(f.value)" #f="ngForm">
+    	<ion-label>Dimensions</ion-label>
+    	<ion-item>
+			<ion-label>Width</ion-label>
+	        <ion-input type="number" name="width" ngModel required></ion-input>
+    	</ion-item>
+    	<ion-item>
+			<ion-label>Height</ion-label>
+	        <ion-input type="number" name="height" ngModel required></ion-input>
+    	</ion-item>
+    	<ion-item>
+			<ion-label>Depth</ion-label>
+	        <ion-input type="number" name="depth" ngModel required></ion-input>
+    	</ion-item>
+    	<ion-item>
+			<ion-label>Weight</ion-label>
+	        <ion-input type="number" name="weight" ngModel required></ion-input>
+    	</ion-item>
+    	<ion-label>Offer</ion-label>
+     	<ion-item>
+			<ion-label>Price</ion-label>
+	        <ion-input type="number" name="price" ngModel required></ion-input>
+    	</ion-item>
+    	<ion-item>
+    		<ion-label>Reputation Points</ion-label>
+				<ion-range name="reputation" min="0" max="9" step="1" ngModel>
+			    <ion-icon range-left name="remove-circle"></ion-icon>
+			    <ion-icon range-right name="add-circle"></ion-icon>
+			</ion-range>
+		</ion-item>	
+      <ion-item>
+        <ion-label>Description</ion-label>
+        <ion-textarea name="description" ngModel></ion-textarea>
+      </ion-item>
+      <button ion-button type="submit" [disabled]="!f.valid" block>Create Order</button>
+    </form>
+</ion-content>

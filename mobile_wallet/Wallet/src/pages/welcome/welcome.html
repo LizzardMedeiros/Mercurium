@@ -1,0 +1,82 @@
+<!--
+  Generated template for the WelcomePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Mercurium Wallet</ion-title>
+    <ion-buttons end>
+	    <button ion-button icon-only (click)="openNewOrder()" >
+	    	<ion-icon name="mail"></ion-icon>
+	    </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+	<p text-center>Balance</p>
+	<ion-card>
+		<ion-card-header>
+			Mercurium
+		</ion-card-header>
+		<ion-card-content>
+			<ion-grid>
+				<ion-row>
+					<ion-col col-12><h1 ion-text text-center color="primary" style="font-weight: bold;">{{balance}}</h1></ion-col>
+				</ion-row>
+			</ion-grid>
+		</ion-card-content>
+		<ion-row>
+			<ion-col col-12 align-items-end>
+				<button ion-button icon-left clear small>
+			        <ion-icon name="ios-log-out-outline"></ion-icon>
+			        <div>Send</div>
+			    </button>
+			</ion-col>
+		</ion-row>
+	</ion-card>
+	<ion-card>
+		<ion-card-header>
+	    	Ethereum
+		</ion-card-header>
+		<ion-card-content>
+	  		<h1 ion-text text-center color="primary" style="font-weight: bold;">{{eth_balance}}</h1>
+	 	</ion-card-content>
+		<ion-row>
+			<ion-col col-12 align-items-end>
+				<button ion-button icon-left clear small>
+			        <ion-icon name="ios-log-out-outline"></ion-icon>
+			        <div>Send</div>
+			    </button>
+			</ion-col>
+		</ion-row>	  
+	</ion-card>
+	<ion-list inset>
+		<ion-item-sliding *ngFor="let order of order_list">
+			<ion-item>
+				<ion-icon name="mail" color={{order_status.style[order.status]}} item-start></ion-icon>
+				<h2>{{order.description}}</h2>
+				<small>Status: {{order_status.status[order.status]}}</small>
+			</ion-item>
+			<ion-item-options side="right">
+      			<button ion-button icon-left outline color="primary" (click)="onTrack(order.id-1)">
+        			<ion-icon name="ios-pin-outline"></ion-icon>
+        			Track
+      			</button>
+      			<button ion-button icon-left outline color="secondary">
+        			<ion-icon name="ios-checkmark-circle-outline"></ion-icon>
+        			Sended
+      			</button>
+      			<button ion-button icon-left outline color="danger" (click)="cancelOrder(order.id-1)">
+        			<ion-icon name="ios-close-circle-outline"></ion-icon>
+        			Cancel
+      			</button>
+      		</ion-item-options>
+		</ion-item-sliding>
+	</ion-list>
+
+</ion-content>
